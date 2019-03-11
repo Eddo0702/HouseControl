@@ -81,11 +81,15 @@ public class Device {
 		boolean flag = false;
 		if (obj instanceof Device && obj != null) {
 			Device otherDevice = (Device) obj;
-			if (this.name == otherDevice.name && this.brand == otherDevice.brand && this.model == otherDevice.model) {
+			if (isEqualTo(otherDevice)) {
 				flag = true;
 			}
 		}
 		return flag;
+	}
+	
+	private boolean isEqualTo(Device otherDevice) {
+		return this.name == otherDevice.name && this.brand == otherDevice.brand && this.model == otherDevice.model;
 	}
 
 	public boolean toggleDevice() {
