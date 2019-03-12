@@ -63,18 +63,14 @@ public class Level {
 
 	// searchRoom
 	public int searchRoom(Room otherRoom) {
-		int index = 0;
-		boolean flag = false;
-		for (index = 0; index < rooms.size() && flag == false; index++) {
+		int position = 0;
+		for (int index = 0; index < rooms.size(); index++) {
 			if (rooms.get(index).equals(otherRoom)) {
-				flag = true;
+				position = index;
 				break;
 			}
 		}
-		if (flag == false) {
-			index = -1;
-		}
-		return index;
+		return position;
 	}
 
 	// removeRoom
