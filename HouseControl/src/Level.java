@@ -87,18 +87,16 @@ public class Level {
 		return output;
 	}
 
-	public boolean switchOffAllRooms() {
+	public void switchOffAllRooms() {
 		for (int index = 0; index < getRoomCounter(); index++) {
 			rooms.get(index).switchOffAllDevices();
 		}
-		return true;
 	}
 
-	public boolean switchOnAllRooms() {
+	public void switchOnAllRooms() {
 		for (int index = 0; index < getRoomCounter(); index++) {
 			rooms.get(index).switchOnAllDevices();
 		}
-		return true;
 	}
 
 	public boolean switchOnRoom(Room room) {
