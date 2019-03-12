@@ -119,30 +119,17 @@ public class Level {
 		return false; 
 	}
 
-	public boolean levelSwitchOffDevice(Room room, Device device) {
-		boolean found = true;
-		
+	public boolean levelSwitchDevice(Room room, Device device, boolean setOn) {
 		Device roomDevice = getRoomDevice(room, device);
 		if (roomDevice ==  null)
-			found = false;
-		else {
-			roomDevice.switchOffDevice();
-		}
-		
-		return found;
-	}
+			return false;
 
-	public boolean levelSwitchOnDevice(Room room, Device device) {
-		boolean found = false;
-		
-		Device roomDevice = getRoomDevice(room, device);	
-		if (roomDevice ==  null)
-			found = false;
-		else {
+		if (setOn)
 			roomDevice.switchOnDevice();
-		}
+		else
+			roomDevice.switchOffDevice();
 		
-		return found;
+		return true;
 	}
 	
 	private Device getRoomDevice(Room room, Device device) {
