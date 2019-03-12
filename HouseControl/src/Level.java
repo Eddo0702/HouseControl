@@ -146,7 +146,7 @@ public class Level {
 		return null;
 	}
 
-	public void switchAllOffSameDevices(String nameDevices) {// Nuevo
+	public void switchOffDevicesByName(String nameDevices) {
 		for (int i = 0; i < rooms.size(); i++) {
 			ArrayList<Device> devices = rooms.get(i).getDevices();
 			for (int j = 0; j < rooms.get(i).getDeviceCounter(); j++) {
@@ -155,6 +155,10 @@ public class Level {
 				}
 			}
 		}
+	}
+	
+	public void swithcOffRoomDevicesByName() {
+		
 	}
 
 	public boolean equals(Object obj) {
