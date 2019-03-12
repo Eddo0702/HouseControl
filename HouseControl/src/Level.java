@@ -74,7 +74,7 @@ public class Level {
 	}
 
 	// removeRoom
-	public boolean RemoveRoom(Room room) {
+	public boolean removeRoom(Room room) {
 		return rooms.remove(room);
 	}
 
