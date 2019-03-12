@@ -75,14 +75,7 @@ public class Level {
 
 	// removeRoom
 	public boolean RemoveRoom(Room room) {
-		boolean flag = false;
-		int pos = searchRoom(room);
-
-		if (pos != -1) {
-			rooms.remove(pos);
-		}
-
-		return flag;
+		return rooms.remove(room);
 	}
 
 	public String toString() {
