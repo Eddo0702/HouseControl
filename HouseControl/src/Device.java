@@ -89,7 +89,11 @@ public class Device {
 	}
 	
 	private boolean isEqualTo(Device otherDevice) {
-		return this.name == otherDevice.name && this.brand == otherDevice.brand && this.model == otherDevice.model;
+		boolean isSameName = this.name == otherDevice.name;
+		boolean isSameBrand = this.brand == otherDevice.brand;
+		boolean isSameModel = this.model == otherDevice.model;
+		
+		return isSameName && isSameBrand && isSameModel;
 	}
 
 	public boolean toggleDevice() {
