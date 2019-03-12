@@ -146,19 +146,21 @@ public class Level {
 		return null;
 	}
 
-	public void switchOffDevicesByName(String nameDevices) {
-		for (int i = 0; i < rooms.size(); i++) {
-			ArrayList<Device> devices = rooms.get(i).getDevices();
-			for (int j = 0; j < rooms.get(i).getDeviceCounter(); j++) {
-				if (devices.get(j).getName().equals(nameDevices)) {
-					devices.get(j).switchOffDevice();
-				}
-			}
+	public void switchOffDevicesByName(String name) {
+		int numberOfRooms = rooms.size();
+		for (int i = 0; i < numberOfRooms; i++) {
+			swithcOffRoomDevicesByName(rooms.get(i),name);
 		}
 	}
 	
-	public void swithcOffRoomDevicesByName() {
-		
+	public void swithcOffRoomDevicesByName(Room room, String name) {
+		ArrayList<Device> devices = room.getDevices();
+		int numberOfDevices = devices.size();
+		for (int i = 0; i < numberOfDevices; i++) {
+			if (devices.get(i).getName().equals(name)) {
+				devices.get(i).switchOffDevice();
+			}
+		}
 	}
 
 	public boolean equals(Object obj) {
