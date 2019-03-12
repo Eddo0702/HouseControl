@@ -100,25 +100,23 @@ public class Level {
 	}
 
 	public boolean switchOnRoom(Room room) {
-		boolean flag = false;
 		int index;
 		index = this.searchRoom(room);
 		if (index > -1) {
 			rooms.get(index).switchOnAllDevices();
-			flag = true;
+			return true;
 		}
-		return flag;
+		return false; 
 	}
 
 	public boolean switchOffRoom(Room room) {
-		boolean flag = false;
 		int index;
 		index = this.searchRoom(room);
 		if (index > -1) {
 			rooms.get(index).switchOffAllDevices();
-			flag = true;
+			return true;
 		}
-		return flag;
+		return false;
 	}
 
 	public boolean levelSwitchOffDevice(Room room, Device device) {
