@@ -121,43 +121,42 @@ public class Level {
 
 	public boolean levelSwitchOffDevice(Room room, Device device) {
 		boolean found = true;
-		int lRoom = this.searchRoom(room);
-		if (lRoom > -1) {
-			Device roomDevice = getRoomDevice(lRoom, device);
-			
-			if (roomDevice ==  null)
-				found = false;
-			else {
-				roomDevice.switchOffDevice();
-			}
+		
+		Device roomDevice = getRoomDevice(room, device);
+		if (roomDevice ==  null)
+			found = false;
+		else {
+			roomDevice.switchOffDevice();
 		}
+		
 		return found;
 	}
 
 	public boolean levelSwitchOnDevice(Room room, Device device) {
 		boolean found = false;
-		int lRoom = this.searchRoom(room);
-		if (lRoom > -1) {
-			Device roomDevice = getRoomDevice(lRoom, device);
-					
-			if (roomDevice ==  null)
-				found = false;
-			else {
-				roomDevice.switchOnDevice();
-			}
+		
+		Device roomDevice = getRoomDevice(room, device);	
+		if (roomDevice ==  null)
+			found = false;
+		else {
+			roomDevice.switchOnDevice();
 		}
+		
 		return found;
 	}
 	
-	private Device getRoomDevice(int room, Device device) {
-		ArrayList<Device> d;
-		d = rooms.get(room).getDevices();
-		int lDevice = rooms.get(room).searchDevice(device);
-		
-		if (lDevice > -1)
-			return d.get(lDevice);
-		else
-			return null;
+	private Device getRoomDevice(Room room, Device device) {
+		int lRoom = this.searchRoom(room);
+		if (lRoom > -1) {
+			ArrayList<Device> devices;
+			devices = rooms.get(lRoom).getDevices();
+			int lDevice = rooms.get(lRoom).searchDevice(device);
+			
+			if (lDevice > -1)
+				return devices.get(lDevice);
+		}
+
+		return null;
 	}
 
 	public void switchAllOffSameDevices(String nameDevices) {// Nuevo
