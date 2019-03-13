@@ -1,7 +1,7 @@
 
 /**
  * 
- * @author Eduardo.Perez
+ * @author eduardo.perez
  */
 public class Device {
 
@@ -10,6 +10,7 @@ public class Device {
 	private String model;
 	private boolean status;
 
+	
 	public Device(String name, String brand, String model, boolean status) {
 		this.name = name;
 		this.brand = brand;
@@ -95,14 +96,13 @@ public class Device {
 	 * @return	boolean	The result of the comparison. True if both objects are equal. False if they are not.
 	 */
 	public boolean equals(Object obj) {
-		boolean flag = false;
 		if (obj instanceof Device && obj != null) {
 			Device otherDevice = (Device) obj;
 			if (isEqualTo(otherDevice)) {
-				flag = true;
+				return true;
 			}
 		}
-		return flag;
+		return false;
 	}
 	
 	/**
