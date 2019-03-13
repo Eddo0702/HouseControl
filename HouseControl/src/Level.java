@@ -94,11 +94,11 @@ public class Level {
 		return deviceCount;
 	}
 	
-	public boolean toogleSpecificDevice (String name) {
+	public boolean toggleSpecificDevice (String name) {
 		boolean toogled = false;
 		int numberOfRooms = getRoomCounter();
 		for (int i = 0; i < numberOfRooms; i++) {
-			if (rooms.get(i).toogleSpecificDevice(name)) {
+			if (rooms.get(i).toggleSpecificDevice(name)) {
 				toogled = true;
 			}
 		}
