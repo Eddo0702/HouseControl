@@ -62,7 +62,7 @@ public class Device {
 	/**
 	 * @return the status
 	 */
-	public boolean isStatus() {
+	public boolean isOn() {
 		return status;
 	}
 

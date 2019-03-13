@@ -71,7 +71,7 @@ public class Room {
 		int devicesOn = 0;
 		int numberOfDevices = getDeviceCounter();
 		for (int i = 0; i < numberOfDevices; i++) {
-			if (devices.get(i).isStatus() == true) {
+			if (devices.get(i).isOn()) {
 				devicesOn++;
 			}
 		}
