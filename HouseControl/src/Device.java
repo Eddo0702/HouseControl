@@ -1,7 +1,7 @@
 
 /**
- *
- * @author edgar.cambranes
+ * 
+ * @author Eduardo.Perez
  */
 public class Device {
 
@@ -18,65 +18,82 @@ public class Device {
 	}
 
 	/**
-	 * @return the name
+	 * Returns the name of the device. Said name is often used as an identifier so the device can be tracked.
+	 * @return	name	The name of the device
 	 */
 	public String getName() {
 		return name;
 	}
 
 	/**
-	 * @param name the name to set
+	 * Sets the name of the device. Said name is often used as an identifier so the device can be tracked
+	 * @param	name	The name to set
 	 */
 	public void setName(String name) {
 		this.name = name;
 	}
 
 	/**
-	 * @return the brand
+	 * Returns the brand of the device. Said brand let us categorize certain types of devices.
+	 * @return	brand	The brand of the device. Also Known as the provider.
 	 */
 	public String getBrand() {
 		return brand;
 	}
 
 	/**
-	 * @param brand the brand to set
+	 * Sets the brand of the device. Said brand let us categorize certain types of devices.
+	 * @param	brand	The brand of the device. Also known as the provider.
 	 */
 	public void setBrand(String brand) {
 		this.brand = brand;
 	}
 
 	/**
-	 * @return the model
+	 * Returns the model of the device. Said model let us compare devices among the same kind.
+	 * @return	model	The model of the device. Also known as the version.
 	 */
 	public String getModel() {
 		return model;
 	}
 
 	/**
-	 * @param model the model to set
+	 * Sets the model of the device. Said model let us compare devices among the same kind.
+	 * @param	model	The model of the device. Also known as the version.
 	 */
 	public void setModel(String model) {
 		this.model = model;
 	}
 
 	/**
-	 * @return the status
+	 * Returns the status of the device. The status is used to identify if the device is On or is Off.
+	 * @return	status	The status of the device. If true the device is On. If False the device is Off.
 	 */
 	public boolean isOn() {
 		return status;
 	}
 
 	/**
-	 * @param status the status to set
+	 * Sets the status of the device. The status is used to identify if the device is On or is Off.
+	 * @param	status	The status of the device. If true the device is On. If False the device is Off.
 	 */
 	public void setStatus(boolean status) {
 		this.status = status;
 	}
 
+	/**
+	 * Returns the Information of the device. This is often used for display purposes.
+	 * @return	String	A String containing the name, brand, model, and the status of the device, separated by blank spaces.
+	 */
 	public String toString() {
 		return name + " " + brand + " " + model + " " + status;
 	}
 
+	/**
+	 * Compares the device to another object.
+	 * @param	obj		The object to to compare to.
+	 * @return	boolean	The result of the comparison. True if both objects are equal. False if they are not.
+	 */
 	public boolean equals(Object obj) {
 		boolean flag = false;
 		if (obj instanceof Device && obj != null) {
@@ -88,24 +105,40 @@ public class Device {
 		return flag;
 	}
 	
-	private boolean isEqualTo(Device otherDevice) {
-		boolean isSameName = this.name == otherDevice.name;
-		boolean isSameBrand = this.brand == otherDevice.brand;
-		boolean isSameModel = this.model == otherDevice.model;
+	/**
+	 * Compares the device to another device.
+	 * @param	device	The device to to compare to.
+	 * @return	boolean	The result of the comparison. True if the name, model and brand are equal between both devices.
+	 * 					False if name, model or brand are different between both devices.
+	 */
+	private boolean isEqualTo(Device device) {
+		boolean isSameName = this.name == device.name;
+		boolean isSameBrand = this.brand == device.brand;
+		boolean isSameModel = this.model == device.model;
 		
 		return isSameName && isSameBrand && isSameModel;
 	}
 
+	/**
+	 * Switch the status of the device from On to Off and vice versa.
+	 * @return	boolean	True if the device toggled from Off to On. False if the device toggled from On to Off.
+	 */
 	public boolean toggleDevice() {
 		this.status = !(this.status);
 		return status;
 	}
 
+	/**
+	 * Turns off the device
+	 */
 	public boolean switchOffDevice() {
 		status = false;
 		return status;
 	}
 
+	/**
+	 * Turns on the device
+	 */
 	public boolean switchOnDevice() {
 		status = true;
 		return status;
