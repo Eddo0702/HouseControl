@@ -93,6 +93,17 @@ public class Level {
 		}
 		return deviceCount;
 	}
+	
+	public boolean toogleSpecificDevice (String name) {
+		boolean toogled = false;
+		int numberOfRooms = getRoomCounter();
+		for (int i = 0; i < numberOfRooms; i++) {
+			if (rooms.get(i).toogleSpecificDevice(name)) {
+				toogled = true;
+			}
+		}
+		return toogled;
+	}
 
 	public String toString() {
 		String output = "";

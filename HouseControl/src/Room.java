@@ -88,6 +88,18 @@ public class Room {
 		}
 		return deviceCount;
 	}
+	
+	public boolean toogleSpecificDevice(String name) {
+		boolean toogled = false;
+		int numberOfDevices = getDeviceCounter();
+		for (int i = 0; i < numberOfDevices; i++) {
+			if (devices.get(i).getName().equals(name)) {
+				devices.get(i).toggleDevice();
+				toogled = true;
+			}
+		}
+		return toogled;
+	}
 
 	public int searchDevice(Device otherDevice) {
 		int position = -1;
