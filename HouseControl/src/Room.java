@@ -104,6 +104,15 @@ public class Room {
 			devices.get(index).switchOnDevice();
 		}
 	}
+	
+	public void swithcOffDevicesByName(String name) {
+		int numberOfDevices = devices.size();
+		for (int i = 0; i < numberOfDevices; i++) {
+			if (devices.get(i).getName().equals(name)) {
+				devices.get(i).switchOffDevice();
+			}
+		}
+	}
 
 	public boolean equals(Object obj) {
 		boolean flag = false;

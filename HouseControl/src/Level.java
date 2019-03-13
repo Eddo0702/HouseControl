@@ -156,17 +156,7 @@ public class Level {
 	public void switchOffDevicesByName(String name) {
 		int numberOfRooms = rooms.size();
 		for (int i = 0; i < numberOfRooms; i++) {
-			swithcOffRoomDevicesByName(rooms.get(i),name);
-		}
-	}
-	
-	public void swithcOffRoomDevicesByName(Room room, String name) {
-		ArrayList<Device> devices = room.getDevices();
-		int numberOfDevices = devices.size();
-		for (int i = 0; i < numberOfDevices; i++) {
-			if (devices.get(i).getName().equals(name)) {
-				devices.get(i).switchOffDevice();
-			}
+			rooms.get(i).swithcOffDevicesByName(name);
 		}
 	}
 
