@@ -36,7 +36,7 @@ public class Level {
 
 	/**
 	 * The current amount of rooms in the level.
-	 * @return	Integer	The size of the array of devices.
+	 * @return	Integer	The size of the array of rooms.
 	 */
 	public int getRoomCounter() {
 		return rooms.size();
@@ -76,7 +76,7 @@ public class Level {
 	/**
 	 * Loops trough the array to find the given room.
 	 * @param	room	The room we want to find in the room.
-	 * @return	position	The position in the array of the room. If the room was no found returns -1.
+	 * @return	position	The position in the array of the room. If the room was not found returns -1.
 	 */
 	public int searchRoom(Room room) {
 		int position = 0;

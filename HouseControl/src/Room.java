@@ -138,7 +138,7 @@ public class Room {
 	/**
 	 * Loops trough the array to find the given device.
 	 * @param	device	The device we want to find in the room.
-	 * @return	position	The position in the array of the device. If the device was no found returns -1.
+	 * @return	position	The position in the array of the device. If the device was not found returns -1.
 	 */
 	public int searchDevice(Device device) {
 		int position = -1;
