@@ -66,6 +66,17 @@ public class Room {
 	public int getDeviceCounter() {
 		return devices.size();
 	}
+	
+	public int countDevicesOn () {
+		int devicesOn = 0;
+		int numberOfDevices = getDeviceCounter();
+		for (int i = 0; i < numberOfDevices; i++) {
+			if (devices.get(i).isStatus() == true) {
+				devicesOn++;
+			}
+		}
+		return devicesOn;
+	}
 
 	public int searchDevice(Device otherDevice) {
 		int position = -1;

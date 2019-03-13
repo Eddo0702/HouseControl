@@ -78,15 +78,9 @@ public class Level {
 	
 	public int countDevicesOn() {
 		int devicesOn = 0;
-		int numberOfRooms = rooms.size();
-		for (int j = 0; j < numberOfRooms; j++) {
-			ArrayList<Device> devices = rooms.get(j).getDevices();
-			int counterDevices = rooms.get(j).getDeviceCounter();
-			for (int k = 0; k < counterDevices; k++) {
-				if (devices.get(k).isStatus() == true) {
-					devicesOn++;
-				}
-			}
+		int numberOfRooms = getRoomCounter();
+		for (int i = 0; i < numberOfRooms; i++) {
+			devicesOn += rooms.get(i).countDevicesOn();
 		}
 		return devicesOn;
 	}
