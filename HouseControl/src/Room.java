@@ -46,8 +46,8 @@ public class Room {
 	 * Replaces the devices in this room with a new list of devices.
 	 * @param devices The new list of devices.
 	 */
-	public void setDevices(Device[] devices) {
-		this.setDevices(devices);
+	public void setDevices(ArrayList<Device> devices) {
+		this.devices = devices;
 	}
 
 	/**
