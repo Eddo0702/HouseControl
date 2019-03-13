@@ -61,7 +61,6 @@ public class Level {
 		this.name = name;
 	}
 
-	// searchRoom
 	public int searchRoom(Room otherRoom) {
 		int position = 0;
 		for (int index = 0; index < rooms.size(); index++) {
@@ -73,9 +72,23 @@ public class Level {
 		return position;
 	}
 
-	// removeRoom
 	public boolean removeRoom(Room room) {
 		return rooms.remove(room);
+	}
+	
+	public int countDevicesOn() {
+		int devicesOn = 0;
+		int numberOfRooms = rooms.size();
+		for (int j = 0; j < numberOfRooms; j++) {
+			ArrayList<Device> devices = rooms.get(j).getDevices();
+			int counterDevices = rooms.get(j).getDeviceCounter();
+			for (int k = 0; k < counterDevices; k++) {
+				if (devices.get(k).isStatus() == true) {
+					devicesOn++;
+				}
+			}
+		}
+		return devicesOn;
 	}
 
 	public String toString() {

@@ -11,13 +11,11 @@ public class House {
 	public House(ArrayList<Level> levels, String name) {
 		this.levels = levels;
 		this.name = name;
-
 	}
 
 	public House(String name) {
 		this.levels = new ArrayList<Level>();
 		this.name = name;
-
 	}
 
 	public void addLevel(Level level) {
@@ -25,40 +23,24 @@ public class House {
 	}
 
 	public int getLevelCounter(ArrayList<Level> levels) {
-
 		return levels.size();
-
 	}
 
 	public int searchLevel(String name) {
-		int index = 0;
-		boolean flag = false;
-		for (index = 0; index < levels.size() && flag == false; index++) {
+		int position = -1;
+		for (int index = 0; index < levels.size(); index++) {
 			if (levels.get(index).equals(new Level(name))) {
-				flag = true;
+				position = index;
 				break;
 			}
 		}
-		if (flag == false) {
-			index = -1;
-		}
-		return index;
+		return position;
 	}
 
 	public int countDevicesOn() {
 		int devicesOn = 0;
 		for (int i = 0; i < levels.size(); i++) {
-			ArrayList<Room> rooms = levels.get(i).getRooms();
-			int counterRooms = levels.get(i).getCounterRooms(rooms);
-			for (int j = 0; j < counterRooms; j++) {
-				ArrayList<Device> devices = rooms.get(j).getDevices();
-				int counterDevices = rooms.get(j).getDeviceCounter();
-				for (int k = 0; k < counterDevices; k++) {
-					if (devices.get(k).isStatus() == true) {
-						devicesOn++;
-					}
-				}
-			}
+			devicesOn += levels.get(i).countDevicesOn();
 		}
 		return devicesOn;
 	}
