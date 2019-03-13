@@ -55,24 +55,28 @@ public class House {
 
 	public boolean toogleSpecificDeviceLevel(String level, String device) {
 		boolean flag = false;
-		for (int i = 0; i < levels.size(); i++) {
-			if (levels.get(i).getName().equals(level)) {
-				ArrayList<Room> rooms = levels.get(i).getRooms();
-				int counterRooms = levels.get(i).getCounterRooms(rooms);
-				for (int j = 0; j < counterRooms; j++) {
-					ArrayList<Device> devices = rooms.get(j).getDevices();
-					int counterDevices = rooms.get(j).getDeviceCounter();
-					for (int k = 0; k < counterDevices; k++) {
-						if (devices.get(k).getName().equals(name)) {
-							devices.get(k).toggleDevice();
-							flag = true;
-						}
+		int levelIndex = searchLevel(level);
+		
+		if (levelIndex < 0) {
+			flag = false;
+		}else{
+			ArrayList<Room> rooms = levels.get(levelIndex).getRooms();
+			int counterRooms = levels.get(levelIndex).getCounterRooms(rooms);
+			for (int i = 0; i < counterRooms; i++) {
+				ArrayList<Device> devices = rooms.get(i).getDevices();
+				int counterDevices = rooms.get(i).getDeviceCounter();
+				for (int j = 0; j < counterDevices; j++) {
+					if (devices.get(j).getName().equals(name)) {
+						devices.get(j).toggleDevice();
+						flag = true;
 					}
 				}
 			}
 		}
 		return flag;
 	}
+	
+	
 
 	public String toString() {
 		String output = "";
