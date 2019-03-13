@@ -46,21 +46,11 @@ public class House {
 	}
 
 	public int countSpecificDevice(String name) {
-		int counter = 0;
+		int devices = 0;
 		for (int i = 0; i < levels.size(); i++) {
-			ArrayList<Room> rooms = levels.get(i).getRooms();
-			int counterRooms = levels.get(i).getCounterRooms(rooms);
-			for (int j = 0; j < counterRooms; j++) {
-				ArrayList<Device> devices = rooms.get(j).getDevices();
-				int counterDevices = rooms.get(j).getDeviceCounter();
-				for (int k = 0; k < counterDevices; k++) {
-					if (devices.get(k).getName().equals(name)) {
-						counter++;
-					}
-				}
-			}
+			devices += levels.get(i).countSpecificDevices(name);
 		}
-		return counter;
+		return devices;
 	}
 
 	public boolean toogleSpecificDeviceLevel(String level, String device) {

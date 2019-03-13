@@ -77,6 +77,17 @@ public class Room {
 		}
 		return devicesOn;
 	}
+	
+	public int countSpecificDevices (String name) {
+		int deviceCount = 0;
+		int numberOfDevices = getDeviceCounter();
+		for (int i = 0; i < numberOfDevices; i++) {
+			if (devices.get(i).getName().equals(name)) {
+				deviceCount++;
+			}
+		}
+		return deviceCount;
+	}
 
 	public int searchDevice(Device otherDevice) {
 		int position = -1;

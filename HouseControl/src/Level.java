@@ -84,6 +84,15 @@ public class Level {
 		}
 		return devicesOn;
 	}
+	
+	public int countSpecificDevices(String name) {
+		int deviceCount = 0;
+		int numberOfRooms = getRoomCounter();
+		for (int i = 0; i < numberOfRooms; i++) {
+			deviceCount += rooms.get(i).countSpecificDevices(name);
+		}
+		return deviceCount;
+	}
 
 	public String toString() {
 		String output = "";
