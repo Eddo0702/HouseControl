@@ -17,11 +17,7 @@ public class Level {
 		this.name = name;
 		this.rooms = new ArrayList<Room>();
 	}
-
-	public int getCounterRooms(ArrayList<Room> rooms) {
-		return rooms.size();
-	}
-
+	
 	public void addRoom(Room room) {
 		rooms.add(room);
 	}
