@@ -53,14 +53,14 @@ public class House {
 		return devices;
 	}
 
-	public boolean toogleSpecificDeviceLevel(String level, String device) {
+	public boolean toggleSpecificDeviceLevel(String level, String device) {
 		int levelIndex = searchLevel(level);
 		
 		if (levelIndex < 0) {
 			return false;
 		}
 		
-		return levels.get(levelIndex).toogleSpecificDevice(name);
+		return levels.get(levelIndex).toggleSpecificDevice(name);
 	}
 	
 	
